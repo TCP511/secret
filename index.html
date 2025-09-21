@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secret Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Consolas, monospace;
+      background: #0a0a0a;
+      color: #33ff99;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+    p {
+      font-size: 16px;
+      color: #66ffcc;
+      margin-bottom: 20px;
+    }
+    .terminal-box {
+      background: #111;
+      border: 2px solid #00ffcc;
+      border-radius: 6px;
+      padding: 20px;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0,255,200,0.4);
+    }
+    .line::before {
+      content: "> ";
+      color: #33ff99;
+    }
+    .subscribe {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    input[type="email"] {
+      padding: 10px;
+      border: 1px solid #00ffcc;
+      border-radius: 4px;
+      background: #000;
+      color: #33ff99;
+      width: 220px;
+      font-family: Consolas, monospace;
+    }
+    button {
+      padding: 10px 16px;
+      border: 1px solid #00ffcc;
+      border-radius: 4px;
+      background: #0a0a0a;
+      color: #00ffcc;
+      cursor: pointer;
+      font-family: Consolas, monospace;
+    }
+    button:hover {
+      background: #003333;
+    }
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 13px;
+      color: #00ffcc;
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-box">
+    <div class="line">Initializing profile website...</div>
+    <div class="line">Loading modules...</div>
+    <div class="line">Project: <strong>secret</strong></div>
+    <div class="line">Status: <em>Coming Soon</em></div>
+  </div>
+
+  <form class="subscribe" onsubmit="return false;">
+    <input type="email" placeholder="your@email.com" required />
+    <button>Notify Me</button>
+  </form>
+
+  <footer>&copy; <span id="year"></span> secret.sa</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
