@@ -1,95 +1,285 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Secret Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Consolas, monospace;
-      background: #0a0a0a;
-      color: #33ff99;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #00ffcc;
-    }
-    p {
-      font-size: 16px;
-      color: #66ffcc;
-      margin-bottom: 20px;
-    }
-    .terminal-box {
-      background: #111;
-      border: 2px solid #00ffcc;
-      border-radius: 6px;
-      padding: 20px;
-      max-width: 500px;
-      text-align: left;
-      box-shadow: 0 0 10px rgba(0,255,200,0.4);
-    }
-    .line::before {
-      content: "> ";
-      color: #33ff99;
-    }
-    .subscribe {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    input[type="email"] {
-      padding: 10px;
-      border: 1px solid #00ffcc;
-      border-radius: 4px;
-      background: #000;
-      color: #33ff99;
-      width: 220px;
-      font-family: Consolas, monospace;
-    }
-    button {
-      padding: 10px 16px;
-      border: 1px solid #00ffcc;
-      border-radius: 4px;
-      background: #0a0a0a;
-      color: #00ffcc;
-      cursor: pointer;
-      font-family: Consolas, monospace;
-    }
-    button:hover {
-      background: #003333;
-    }
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 13px;
-      color: #00ffcc;
-      font-family: Consolas, monospace;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secret</title>
+	
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --bg-black: #0a0a0a;
+            --bg-dark: #111111;
+            --terminal-green: #39ff14;
+            --terminal-cyan: #00ffff;
+            --terminal-red: #ff3333;
+            --terminal-orange: #ff6600;
+            --terminal-yellow: #ffff00;
+            --text-gray: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--bg-black);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(57, 255, 20, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
+            color: var(--terminal-green);
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(57, 255, 20, 0.03) 2px,
+                    rgba(57, 255, 20, 0.03) 4px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            
+            margin-bottom: 40px;
+        }
+        
+        .logo-icon {
+            font-size: 4rem;
+            color: var(--terminal-green);
+            margin-bottom: 20px;
+            animation: glitch 3s infinite;
+            text-shadow: 0 0 10px var(--terminal-green);
+        }
+        
+        @keyframes glitch {
+            0%, 100% { 
+                transform: translate(0);
+                text-shadow: 0 0 10px var(--terminal-green);
+            }
+            20% { 
+                transform: translate(-2px, 2px);
+                text-shadow: -2px 2px 0 var(--terminal-red);
+            }
+            40% { 
+                transform: translate(-2px, -2px);
+                text-shadow: 2px -2px 0 var(--terminal-cyan);
+            }
+            60% { 
+                transform: translate(2px, 2px);
+            }
+            80% { 
+                transform: translate(2px, -2px);
+            }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--terminal-green);
+            text-shadow: 0 0 20px var(--terminal-green);
+            letter-spacing: 2px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .terminal-prompt {
+            color: var(--terminal-green);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .service-card {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 0;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .service-card::before {
+            content: '>';
+            position: absolute;
+            left: 10px;
+            top: 25px;
+            color: var(--terminal-green);
+            font-size: 1.2rem;
+        }
+        
+        .service-card:hover {
+            border-color: var(--terminal-green);
+            box-shadow: 
+                0 0 20px rgba(57, 255, 20, 0.3),
+                inset 0 0 20px rgba(57, 255, 20, 0.05);
+            transform: translateX(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: var(--terminal-cyan);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--terminal-cyan);
+        }
+        
+        .service-card h4 {
+            color: var(--terminal-green);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .btn-primary-custom {
+            background: transparent;
+            color: var(--terminal-green);
+            border: 1px solid var(--terminal-green);
+            padding: 12px 40px;
+            font-weight: 700;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--terminal-green);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary-custom:hover {
+            color: var(--bg-black);
+            box-shadow: 0 0 20px var(--terminal-green);
+        }
+        
+        .btn-primary-custom:hover::before {
+            left: 0;
+        }
+        
+        .security-badge {
+            display: inline-block;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid var(--terminal-green);
+            padding: 6px 15px;
+            border-radius: 0;
+            font-size: 0.85rem;
+            margin: 8px 5px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--terminal-green);
+            position: relative;
+        }
+        
+        .security-badge::before {
+            content: '[';
+            margin-left: 5px;
+        }
+        
+        .security-badge::after {
+            content: ']';
+            margin-right: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(57, 255, 20, 0.2);
+            margin-top: 60px;
+            color: var(--text-gray);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .typing-effect {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .typing-effect::before {
+            content: '_';
+            color: var(--terminal-green);
+            animation: blink 1s infinite;
+            font-weight: 700;
+            margin-right: 5px;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .logo-icon { font-size: 3rem; }
+            .subtitle { font-size: 0.95rem; }
+            .service-card::before { display: none; }
+        }
+    </style>
 </head>
 <body>
-  <div class="terminal-box">
-    <div class="line">Initializing profile website...</div>
-    <div class="line">Loading modules...</div>
-    <div class="line">Project: <strong>secret</strong></div>
-    <div class="line">Status: <em>Coming Soon</em></div>
-  </div>
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="typing-effect">secret</h1>
+            <p class="subtitle">Message not recognized</p>
+            <div>
+                <span class="security-badge">ENCRYPTED</span>
+                <span class="security-badge">SECURE</span>
+                <span class="security-badge">MESSAGE</span>
+            </div>
+        </div>
 
-
-  <footer>&copy; <span id="year"></span> secret.sa</footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+        <footer>
+            <p class="mb-0" dir="ltr">©2026 secret.sa</p>
+        </footer>
+    </div>
 </body>
 </html>
 
