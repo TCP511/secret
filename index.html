@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-bs-theme="light">
+<html lang="ar-SA" dir="rtl" data-bs-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#eef2f7" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <title>Secret — secret.sa | Cybersecurity </title>
+  <meta
+    id="metaDescription"
+    name="description"
+    content="فريق Secret وSecret team (فريق سكرت): فريق سعودي متخصص في الأمن السيبراني يقدّم اختبار الاختراق وتقييم الثغرات وتقارير احترافية وسرية تامة — Secret · secret.sa"
+  />
+  <meta
+    name="keywords"
+    content="فريق سكرت، فريق Secret، Secret team، secret team السعودية، فريق سيبراني سكرت، الأمن السيبراني السعودي، الأمن السيبراني في السعودية، اختبار الاختراق، تقييم الثغرات، تقييم الثغرات الأمنية، فريق سعودي أمن سيبراني، خدمات أمن معلومات، اختبار اختراق احترافي، تقارير أمنية، سرية المعلومات، اتفاقية عدم الإفصاح، NDA، pentest، vulnerability assessment، Saudi cybersecurity، penetration testing، Secret، secret.sa"
+  />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="author" content="Secret — secret.sa" />
+  <meta name="geo.region" content="SA" />
+  <meta name="geo.placename" content="Saudi Arabia" />
+  <meta name="language" content="Arabic" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  <link rel="canonical" href="https://secret.sa/" />
+  <link rel="icon" type="image/png" href="secret-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Secret — secret.sa" />
+  <meta property="og:url" content="https://secret.sa/" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta id="ogTitle" property="og:title" content="Secret — Secret team · فريق سكرت | الأمن السيبراني السعودي | secret.sa" />
+  <meta
+    id="ogDescription"
+    property="og:description"
+    content="فريق Secret وSecret team (فريق سكرت): اختبار اختراق، تقييم ثغرات، تقارير احترافية وسرية تامة — Secret · secret.sa"
+  />
+  <meta property="og:image" content="https://secret.sa/secret-logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="فريق Secret — Secret team · فريق سكرت | الأمن السيبراني السعودي" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="twitterTitle" name="twitter:title" content="Secret — Secret team · فريق سكرت | الأمن السيبراني السعودي | secret.sa" />
+  <meta
+    id="twitterDescription"
+    name="twitter:description"
+    content="فريق Secret وSecret team (فريق سكرت): اختبار اختراق، تقييم ثغرات، تقارير احترافية وسرية تامة — Secret · secret.sa"
+  />
+  <meta name="twitter:image" content="https://secret.sa/secret-logo.png" />
+  <meta name="twitter:image:alt" content="Secret team · Saudi cybersecurity — Secret (فريق سكرت)" />
+  <title>Secret — Secret team · فريق سكرت | الأمن السيبراني السعودي | secret.sa</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-deep: #e8eef5;
@@ -27,6 +71,13 @@
       --shadow-sm: 0 1px 3px rgba(20, 45, 60, 0.06);
       --shadow-md: 0 10px 40px rgba(20, 45, 60, 0.09);
       --shadow-hover: 0 18px 48px rgba(20, 45, 60, 0.11);
+      /* Navbar: نفس اتجاه/عائلة لون تدرّج «اكتشف» مع تمّ عميق للخلفية */
+      --navbar-bg-gradient: linear-gradient(
+        120deg,
+        color-mix(in srgb, var(--accent-bright) 38%, #061511) 0%,
+        color-mix(in srgb, var(--accent) 42%, #051410) 45%,
+        color-mix(in srgb, var(--accent-dim) 46%, #04120f) 100%
+      );
     }
 
     *,
@@ -103,11 +154,13 @@
 
     .navbar-custom {
       font-family: "Alexandria", "Segoe UI", "Tahoma", sans-serif;
-      background: rgba(255, 255, 255, 0.86) !important;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-sm);
+      background: var(--navbar-bg-gradient) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 179, 134, 0.22);
+      box-shadow:
+        0 1px 0 rgba(0, 211, 163, 0.12),
+        0 12px 40px rgba(5, 42, 34, 0.42);
       padding-top: env(safe-area-inset-top, 0px);
     }
 
@@ -126,63 +179,69 @@
       outline-offset: 3px;
     }
 
-    .brand-mark {
-      font-family: "Alexandria", "Segoe UI", "Tahoma", sans-serif;
+    .navbar-custom .brand-mark {
       letter-spacing: -0.015em;
       font-weight: 700;
       font-size: clamp(1rem, 2.9vw, 1.15rem);
-      color: var(--accent-dim) !important;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+      color: #eef6f3 !important;
+      text-shadow: 0 1px 14px rgba(0, 179, 134, 0.28);
     }
 
-    body[dir="rtl"] .brand-mark {
-      letter-spacing: 0;
+    .navbar-custom .brand-mark > span:first-of-type {
+      font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.045em;
     }
 
-    .brand-domain {
+    body[dir="ltr"] .navbar-custom .brand-mark > span:first-of-type {
+      letter-spacing: -0.052em;
+    }
+
+    .navbar-custom .brand-domain {
       font-family: "Alexandria", "Segoe UI", "Tahoma", sans-serif;
       font-size: clamp(0.65rem, 2vw, 0.72rem);
       font-weight: 600;
       letter-spacing: 0.12em;
-      color: var(--text-muted) !important;
-      opacity: 0.9;
+      color: rgba(206, 222, 216, 0.82) !important;
+      opacity: 1;
       text-shadow: none;
       margin-top: 0.15rem;
     }
 
-    .brand-domain:hover {
-      color: var(--accent) !important;
+    .navbar-custom .brand-domain:hover {
+      color: var(--accent-bright) !important;
       opacity: 1;
     }
 
-    .lang-toggle__label {
+    .navbar-custom .lang-toggle__label {
       font-family: inherit;
       font-weight: 500;
       letter-spacing: 0.02em;
+      color: rgba(210, 224, 218, 0.78);
     }
 
-    .lang-toggle .btn {
+    .navbar-custom .lang-toggle .btn {
       font-family: "Alexandria", "Segoe UI", "Tahoma", sans-serif;
       font-size: clamp(0.8rem, 2.8vw, 0.9rem);
       font-weight: 600;
       padding: 0.5rem 0.85rem;
       min-height: 2.75rem;
       min-width: 2.75rem;
-      border-color: rgba(0, 111, 88, 0.28);
-      color: var(--accent-dim);
-      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 179, 134, 0.42);
+      color: rgba(236, 248, 244, 0.96);
+      background: rgba(255, 255, 255, 0.06);
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
-    .lang-toggle .btn:hover {
-      background: rgba(0, 143, 111, 0.1);
-      border-color: var(--accent);
-      color: var(--text);
+    .navbar-custom .lang-toggle .btn:hover {
+      background: rgba(0, 179, 134, 0.14);
+      border-color: var(--accent-bright);
+      color: #f8fcfa;
     }
 
-    .lang-toggle .btn:active {
+    .navbar-custom .lang-toggle .btn:active {
       transform: scale(0.98);
     }
 
@@ -192,48 +251,57 @@
       padding-inline: clamp(0.5rem, 3vw, 0.75rem);
     }
 
-    .logo-shield {
-      width: clamp(72px, 18vw, 92px);
-      height: clamp(72px, 18vw, 92px);
-      margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+    .brand-emblem {
+      --emblem-w: clamp(93px, 22vw, 126px);
+      width: var(--emblem-w);
+      height: var(--emblem-w);
+      margin: 0 auto clamp(1rem, 3vw, 1.45rem);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .logo-shield::before {
-      content: "";
+    .brand-emblem__halo {
       position: absolute;
-      inset: -6px;
-      border-radius: 22px;
-      background: radial-gradient(circle at 40% 35%, rgba(0, 179, 134, 0.2), transparent 55%),
-        linear-gradient(135deg, rgba(184, 150, 89, 0.14), transparent 50%, rgba(0, 111, 88, 0.08));
-      opacity: 0.85;
-      filter: blur(10px);
+      inset: -14%;
+      border-radius: 26%;
+      background:
+        radial-gradient(ellipse at 38% 32%, rgba(0, 179, 134, 0.18), transparent 48%),
+        radial-gradient(ellipse at 72% 72%, rgba(184, 150, 89, 0.1), transparent 52%);
+      filter: blur(14px);
+      opacity: 0.88;
       z-index: 0;
       pointer-events: none;
     }
 
-    .logo-shield-inner {
+    .brand-emblem__plate {
       position: relative;
       z-index: 1;
       width: 100%;
       height: 100%;
-      background: linear-gradient(168deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 250, 0.95));
-      border: 1px solid rgba(184, 150, 89, 0.38);
-      border-radius: clamp(14px, 3vw, 18px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(1.65rem, 5.5vw, 2.1rem);
-      color: var(--accent);
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.92),
-        inset 0 1px 0 rgba(255, 255, 255, 1),
-        0 0 0 2px rgba(255, 255, 255, 0.65),
-        0 0 0 3px rgba(0, 111, 88, 0.12),
-        var(--shadow-md);
+      filter:
+        drop-shadow(0 1px 2px rgba(20, 45, 60, 0.06))
+        drop-shadow(0 8px 20px rgba(20, 45, 60, 0.09));
+    }
+
+    .brand-emblem__plate svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .brand-emblem__plate {
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+      }
+
+      .brand-emblem:hover .brand-emblem__plate {
+        transform: translateY(-2px) scale(1.02);
+        filter:
+          drop-shadow(0 4px 8px rgba(0, 111, 88, 0.08))
+          drop-shadow(0 18px 36px rgba(20, 45, 60, 0.12));
+      }
     }
 
     .tagline {
@@ -533,7 +601,7 @@
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .lang-toggle .btn:active {
+      .navbar-custom .lang-toggle .btn:active {
         transform: none;
       }
     }
@@ -656,23 +724,87 @@
   <div class="scan-line" aria-hidden="true"></div>
 
   <div class="content-wrap">
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
       <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand brand-mark d-inline-flex flex-column align-items-start text-decoration-none" href="https://secret.sa" rel="noopener">
           <span data-i18n="brand">Secret</span>
           <span class="brand-domain">secret.sa</span>
         </a>
         <div class="lang-toggle d-flex gap-2 align-items-center">
-          <span class="text-secondary small d-none d-sm-inline lang-toggle__label" data-i18n="lang_label">اللغة</span>
+          <span class="small d-none d-sm-inline lang-toggle__label" data-i18n="lang_label">اللغة</span>
           <button type="button" class="btn btn-sm btn-outline-secondary" id="btnLang" aria-label="Toggle language">EN / عربي</button>
         </div>
       </div>
     </nav>
 
     <header class="hero text-center container">
-      <div class="logo-shield" role="img" aria-label="شعار Secret — درع أمني بقفل">
-        <div class="logo-shield-inner" aria-hidden="true">
-          <i class="bi bi-shield-lock-fill"></i>
+      <div class="brand-emblem" role="img" aria-label="شعار Secret — حرف S داخل درع أمن سيبراني على ختم مستطيل، بأسلوب توقيع معتمد">
+        <div class="brand-emblem__halo" aria-hidden="true"></div>
+        <div class="brand-emblem__plate" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sigSealRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#cdb87a" />
+                <stop offset="55%" stop-color="#a88452" />
+                <stop offset="100%" stop-color="#7a623f" />
+              </linearGradient>
+              <linearGradient id="sigSealFace" x1="22%" y1="12%" x2="78%" y2="88%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="100%" stop-color="#eef5f2" />
+              </linearGradient>
+              <linearGradient id="sigSealShield" x1="50%" y1="8%" x2="50%" y2="96%">
+                <stop offset="0%" stop-color="#00b386" />
+                <stop offset="48%" stop-color="#008f6f" />
+                <stop offset="100%" stop-color="#045848" />
+              </linearGradient>
+            </defs>
+            <!-- ختم مستطيل قريب من المربع (أعرض قليلاً) -->
+            <rect
+              x="4"
+              y="5.5"
+              width="92"
+              height="89"
+              rx="12.5"
+              ry="10.5"
+              fill="url(#sigSealFace)"
+              stroke="url(#sigSealRing)"
+              stroke-width="1.15"
+            />
+            <rect
+              x="9"
+              y="10.75"
+              width="82"
+              height="78.5"
+              rx="10"
+              ry="8.25"
+              fill="none"
+              stroke="rgba(0, 143, 111, 0.14)"
+              stroke-width="0.55"
+              stroke-dasharray="3 2.5"
+            />
+            <!-- درع أمن سيبراني — أكبر وأعرض -->
+            <g transform="translate(50 49.25) scale(1.56 1.22) translate(-50 -49.25)">
+              <path
+                d="M50 26 L63 31.5 L63 34 L66 35.8 V51.2 C66 61.8 50 73 50 73 C50 73 34 61.8 34 51.2 V35.8 L37 34 V31.5 Z"
+                fill="url(#sigSealShield)"
+                stroke="rgba(0, 43, 36, 0.35)"
+                stroke-width="0.65"
+                stroke-linejoin="round"
+              />
+              <path d="M37 37 H63" stroke="rgba(255,255,255,0.35)" stroke-width="0.55" stroke-linecap="round" />
+            </g>
+            <text
+              x="50"
+              y="52"
+              text-anchor="middle"
+              dominant-baseline="central"
+              font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif"
+              font-weight="700"
+              font-size="36"
+              letter-spacing="-0.03em"
+              fill="#f8fcfb"
+            >S</text>
+          </svg>
         </div>
       </div>
       <h1 class="tagline mb-0">
@@ -684,7 +816,7 @@
       <span class="mono-pill" data-i18n="pill"></span>
     </header>
 
-    <main class="container pb-4 pb-md-5 page-main">
+    <main id="main-content" class="container pb-4 pb-md-5 page-main">
       <div class="row g-3 g-md-4 justify-content-center align-items-stretch">
         <div class="col-md-6 col-lg-5 d-flex">
           <article class="service-card h-100 w-100 d-flex flex-column">
@@ -800,6 +932,81 @@
     </div>
   </div>
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://secret.sa/#organization",
+          "name": "Secret",
+          "alternateName": [
+            "secret.sa",
+            "Secret Saudi cybersecurity",
+            "Secret team",
+            "فريق Secret",
+            "فريق سكرت",
+            "Secret cybersecurity team Saudi Arabia"
+          ],
+          "url": "https://secret.sa/",
+          "email": "contact@secret.sa",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://secret.sa/secret-logo.png",
+            "width": 1024,
+            "height": 1024
+          },
+          "description": "فريق Secret وSecret team (فريق سكرت): فريق سعودي متخصص في الأمن السيبراني يقدّم خدمات اختبار الاختراق وتقييم الثغرات الأمنية بتقارير احترافية وسرية تامة وفق اتفاقيات وعقود عمل.",
+          "areaServed": {
+            "@type": "Country",
+            "name": "المملكة العربية السعودية",
+            "alternateName": ["Saudi Arabia", "SA"]
+          },
+          "knowsAbout": [
+            "الأمن السيبراني السعودي",
+            "اختبار الاختراق",
+            "تقييم الثغرات الأمنية",
+            "Cybersecurity",
+            "Penetration testing",
+            "Vulnerability assessment",
+            "Security audit",
+            "Confidentiality",
+            "NDA",
+            "Secret team",
+            "فريق سكرت"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@secret.sa",
+            "contactType": "sales",
+            "availableLanguage": ["Arabic", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://secret.sa/#website",
+          "url": "https://secret.sa/",
+          "name": "Secret — secret.sa",
+          "description": "فريق Secret وSecret team (فريق سكرت): الأمن السيبراني السعودي، اختبار الاختراق وتقييم الثغرات مع تقارير احترافية وسرية.",
+          "publisher": { "@id": "https://secret.sa/#organization" },
+          "inLanguage": ["ar-SA", "en-US"],
+          "copyrightHolder": { "@id": "https://secret.sa/#organization" }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://secret.sa/#service-pentest-vuln",
+          "name": "اختبار الاختراق وتقييم الثغرات الأمنية",
+          "alternateName": "Penetration testing and vulnerability assessment",
+          "description": "اختبار اختراق يحاكي أساليب المهاجمين، وتقييم منهجي للثغرات مع تقرير تفصيلي وتوصيات ثم إعادة اختبار بعد المعالجة، مع سرية تامة.",
+          "provider": { "@id": "https://secret.sa/#organization" },
+          "areaServed": { "@type": "Country", "name": "SA" },
+          "serviceType": ["Penetration testing", "Vulnerability assessment", "Cybersecurity consulting"],
+          "availableLanguage": ["Arabic", "English"]
+        }
+      ]
+    }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const STRINGS = {
@@ -809,7 +1016,7 @@
         tagline_prefix: "",
         tagline_highlight: "اكتشف الثغرات الأمنية لديك",
         tagline_suffix: " قبل أن يكتشفها الهاكر.",
-        subtag: "فريق سعودي في الأمن السيبراني—اختبار اختراق وتقييم ثغرات أمنية بتقارير احترافية، بسرية تامة وبموجب اتفاقية عدم الإفصاح (NDA).",
+        subtag: "فريق سعودي متخصص في الأمن السيبراني؛ يقدم خدمات أمنية وفق أفضل الممارسات، مع ضمان السرية التامة، وذلك بموجب اتفاقيات وعقود عمل حر.",
         pill: "CONFIDENTIAL // NDA // PENTEST // VULN ASSESS",
         card_secret_title: "خدمة الرسالة السرية",
         card_secret_desc: "قناة مشفّرة للتواصل الحساس. الوصول مقيّد بصلاحيات صريحة ومزدوجة التحقق.",
@@ -824,9 +1031,12 @@
           "نقدم خدمات اختبار الاختراق وتقييم الثغرات الأمنية باحترافية عالية، من خلال فريق سعودي متخصص في الأمن السيبراني، مع تقارير تفصيلية تتضمن التوصيات الأمنية وآليات المعالجة، وذلك بسرية تامة ووفق اتفاقية عدم الإفصاح (NDA).",
         modal_close: "إغلاق",
         footer: "© Secret - secret.sa",
-        contact_label: "للتواصل معنا بخصوص الخدمات:",
-        logo_aria: "شعار Secret — درع أمني بقفل",
+        contact_label: "للتواصل معنا :",
+        logo_aria: "شعار Secret — حرف S داخل درع أمن سيبراني على ختم مستطيل، بأسلوب توقيع معتمد",
         bg_audio_btn: "تشغيل الصوت",
+        seo_title: "Secret — Secret team · فريق سكرت | الأمن السيبراني السعودي | secret.sa",
+        seo_description:
+          "فريق Secret وSecret team (فريق سكرت): فريق سعودي متخصص في الأمن السيبراني يقدّم اختبار الاختراق وتقييم الثغرات وتقارير احترافية وسرية تامة — Secret · secret.sa",
       },
       en: {
         brand: "Secret",
@@ -834,7 +1044,7 @@
         tagline_prefix: "",
         tagline_highlight: "Discover your security vulnerabilities",
         tagline_suffix: " before the hacker does.",
-        subtag: "Saudi cybersecurity team—penetration testing, vulnerability assessment, and detailed reporting under strict confidentiality and NDA.",
+        subtag: "Saudi cybersecurity specialists delivering security services aligned with best practices, with strict confidentiality ensured under agreements and freelance contracts.",
         pill: "CONFIDENTIAL // NDA // PENTEST // VULN ASSESS",
         card_secret_title: "Secret message service",
         card_secret_desc: "Encrypted channel for sensitive communications. Access requires explicit authorization and strong verification.",
@@ -850,8 +1060,11 @@
         modal_close: "Close",
         footer: "© Secret - secret.sa",
         contact_label: "For service inquiries:",
-        logo_aria: "Secret emblem — security shield with lock",
+        logo_aria: "Secret mark — letter S in a cybersecurity shield on a rectangular seal; certified signature style",
         bg_audio_btn: "Play sound",
+        seo_title: "Secret team · Saudi cybersecurity — Secret | Pentest & vulnerability assessment | secret.sa",
+        seo_description:
+          "Secret team (Arabic search: فريق سكرت): Saudi cybersecurity specialists — penetration testing, vulnerability assessment, confidential reporting — Secret · secret.sa",
       },
     };
 
@@ -860,7 +1073,7 @@
     function applyLang(lang) {
       currentLang = lang;
       const root = document.documentElement;
-      root.lang = lang;
+      root.lang = lang === "ar" ? "ar-SA" : "en-US";
       root.dir = lang === "ar" ? "rtl" : "ltr";
       document.getElementById("btnLang").textContent = lang === "ar" ? "English" : "العربية";
 
@@ -871,9 +1084,33 @@
         }
       });
 
-      const logoShield = document.querySelector(".logo-shield");
-      if (logoShield && STRINGS[lang].logo_aria) {
-        logoShield.setAttribute("aria-label", STRINGS[lang].logo_aria);
+      const brandEmblem = document.querySelector(".brand-emblem");
+      if (brandEmblem && STRINGS[lang].logo_aria) {
+        brandEmblem.setAttribute("aria-label", STRINGS[lang].logo_aria);
+      }
+
+      if (STRINGS[lang].seo_title) {
+        document.title = STRINGS[lang].seo_title;
+      }
+      const metaDesc = document.getElementById("metaDescription");
+      if (metaDesc && STRINGS[lang].seo_description) {
+        metaDesc.setAttribute("content", STRINGS[lang].seo_description);
+      }
+      const ogTitleEl = document.getElementById("ogTitle");
+      const ogDescEl = document.getElementById("ogDescription");
+      const twTitleEl = document.getElementById("twitterTitle");
+      const twDescEl = document.getElementById("twitterDescription");
+      if (ogTitleEl && STRINGS[lang].seo_title) {
+        ogTitleEl.setAttribute("content", STRINGS[lang].seo_title);
+      }
+      if (ogDescEl && STRINGS[lang].seo_description) {
+        ogDescEl.setAttribute("content", STRINGS[lang].seo_description);
+      }
+      if (twTitleEl && STRINGS[lang].seo_title) {
+        twTitleEl.setAttribute("content", STRINGS[lang].seo_title);
+      }
+      if (twDescEl && STRINGS[lang].seo_description) {
+        twDescEl.setAttribute("content", STRINGS[lang].seo_description);
       }
     }
 
